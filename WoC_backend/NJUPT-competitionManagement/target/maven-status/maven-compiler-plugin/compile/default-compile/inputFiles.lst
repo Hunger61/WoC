@@ -1,0 +1,17 @@
+E:\WoC\NJUPT-competitionManagement\src\main\java\cn\edu\njupt\controller\MemberController.java
+E:\WoC\NJUPT-competitionManagement\src\main\java\cn\edu\njupt\mapper\MemberMapper.java
+E:\WoC\NJUPT-competitionManagement\src\main\java\cn\edu\njupt\NjuptCompetitionManagementApplication.java
+E:\WoC\NJUPT-competitionManagement\src\main\java\cn\edu\njupt\pojo\Academy.java
+E:\WoC\NJUPT-competitionManagement\src\main\java\cn\edu\njupt\pojo\Competition.java
+E:\WoC\NJUPT-competitionManagement\src\main\java\cn\edu\njupt\pojo\FindMember.java
+E:\WoC\NJUPT-competitionManagement\src\main\java\cn\edu\njupt\pojo\Instructor.java
+E:\WoC\NJUPT-competitionManagement\src\main\java\cn\edu\njupt\pojo\Judge.java
+E:\WoC\NJUPT-competitionManagement\src\main\java\cn\edu\njupt\pojo\Member.java
+E:\WoC\NJUPT-competitionManagement\src\main\java\cn\edu\njupt\pojo\MemberIdRequest.java
+E:\WoC\NJUPT-competitionManagement\src\main\java\cn\edu\njupt\pojo\Result.java
+E:\WoC\NJUPT-competitionManagement\src\main\java\cn\edu\njupt\pojo\Score.java
+E:\WoC\NJUPT-competitionManagement\src\main\java\cn\edu\njupt\pojo\Team.java
+E:\WoC\NJUPT-competitionManagement\src\main\java\cn\edu\njupt\pojo\User.java
+E:\WoC\NJUPT-competitionManagement\src\main\java\cn\edu\njupt\pojo\Work.java
+E:\WoC\NJUPT-competitionManagement\src\main\java\cn\edu\njupt\service\impl\MemberServiceImpl.java
+E:\WoC\NJUPT-competitionManagement\src\main\java\cn\edu\njupt\service\MemberService.java

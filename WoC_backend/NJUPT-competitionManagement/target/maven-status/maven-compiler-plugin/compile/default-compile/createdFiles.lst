@@ -1,0 +1,17 @@
+cn\edu\njupt\pojo\Result.class
+cn\edu\njupt\pojo\Score.class
+cn\edu\njupt\pojo\Judge.class
+cn\edu\njupt\pojo\MemberIdRequest.class
+cn\edu\njupt\pojo\Competition.class
+cn\edu\njupt\pojo\User.class
+cn\edu\njupt\pojo\Instructor.class
+cn\edu\njupt\service\MemberService.class
+cn\edu\njupt\NjuptCompetitionManagementApplication.class
+cn\edu\njupt\mapper\MemberMapper.class
+cn\edu\njupt\pojo\FindMember.class
+cn\edu\njupt\pojo\Member.class
+cn\edu\njupt\controller\MemberController.class
+cn\edu\njupt\service\impl\MemberServiceImpl.class
+cn\edu\njupt\pojo\Team.class
+cn\edu\njupt\pojo\Academy.class
+cn\edu\njupt\pojo\Work.class
