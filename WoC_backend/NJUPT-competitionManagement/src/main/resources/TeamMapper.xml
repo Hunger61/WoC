@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.edu.njupt.mapper.TeamMapper">
+
+<update id="updateTeam">
+    UPDATE team
+    SET
+    name = #{name},
+    captainId = #{captainId},
+    captainName = #{captainName},
+    status = #{status},
+    memberIds = #{memberIds, typeHandler=cn.edu.njupt.handler.JsonListTypeHandler},
+    instructorIds = #{instructorIds, typeHandler=cn.edu.njupt.handler.JsonListTypeHandler},
+    createTime = #{createTime}
+    WHERE id = #{id}
+</update>
+
+
+
+</mapper>

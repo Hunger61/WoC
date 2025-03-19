@@ -1,5 +1,6 @@
 package cn.edu.njupt.pojo;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;
 
 import java.io.Serializable;
@@ -8,7 +9,7 @@ import java.util.List;
 @Data
 public class Team implements Serializable {
     private Long id;
-    private Long comId;
+    private Integer comId;
     private String name;
     private Long captainId;
     private String captainName;
@@ -22,5 +23,6 @@ public class Team implements Serializable {
      */
     private List<Long> memberIds;
     private List<Long> instructorIds;
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm:ss")
     private LocalDateTime createTime;
 }

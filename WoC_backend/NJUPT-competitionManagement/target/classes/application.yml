@@ -2,14 +2,18 @@ spring:
   application:
     name: NJUPT-competitionManagement
 
-#配置数据库的链接信息
   datasource:
     url: jdbc:mysql://localhost:3306/competitionManagement
     username: root
     password: 1234
     driver-class-name: com.mysql.cj.jdbc.Driver
 
-#    Mybatis的相关配置
-  mybatis:
-    configuration:
-      log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+mybatis:
+  type-handlers-package: cn.edu.njupt.handler
+  configuration:
+    log-impl: org.apache.ibatis.logging.slf4j.Slf4jImpl
+
+logging:
+  level:
+    org.apache.ibatis: INFO
+

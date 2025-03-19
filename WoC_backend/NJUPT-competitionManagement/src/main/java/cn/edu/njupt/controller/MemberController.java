@@ -1,17 +1,21 @@
 package cn.edu.njupt.controller;
 
+import cn.edu.njupt.annotation.RequireRole;
+import cn.edu.njupt.common.enums.ErrorEnum;
+import cn.edu.njupt.exception.BusinessException;
 import cn.edu.njupt.pojo.Member;
-import cn.edu.njupt.pojo.MemberIdRequest;
-import cn.edu.njupt.pojo.Result;
+import cn.edu.njupt.response.GlobalResponse;
 import cn.edu.njupt.pojo.FindMember;
 import cn.edu.njupt.service.MemberService;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
-
+@Slf4j
 @RestController
+@RequestMapping("/captain/team/{teamId}/member")
 public class MemberController {
 
     @Autowired
@@ -19,40 +23,47 @@ public class MemberController {
 
 
     //获取成员列表
-    @GetMapping(value = "/captain/team/{teamId}/member",produces = {MediaType.APPLICATION_JSON_VALUE ,MediaType.APPLICATION_XML_VALUE})
-    public Result list(@PathVariable("teamId") String TeamId) {
+    @GetMapping
+    @RequireRole(role = 0)
+    public List<FindMember> list(@Valid @PathVariable("teamId") String TeamId) {
         Integer teamId = Integer.parseInt(TeamId);
-        System.out.println("获取成员列表，团队ID:" + teamId);
-        List<FindMember> memberList = memberService.find(teamId);
-        return Result.success(memberList);
+        log.info("获取成员列表，团队ID:{}", teamId);
+        return memberService.find(teamId);
     }
 
+
     // 删除成员
-    @DeleteMapping(value = "/captain/team/{teamId}/member", produces = MediaType.APPLICATION_JSON_VALUE)
-    public Result delete(@PathVariable("teamId") String TeamId, @RequestBody MemberIdRequest memberIdRequest) {
-        Integer teamId = Integer.parseInt(TeamId);
-        Integer id = memberIdRequest.getId();
-        System.out.println("删除成员，团队ID:" + teamId + " 成员ID:" + id);
-        memberService.delete(teamId, id);
-        return Result.success();
+    @DeleteMapping
+    @RequireRole(role = 0)
+    public void delete(@Valid @RequestBody Member member) {
+        Integer id = Math.toIntExact(member.getId());
+        log.info("删除成员ID:{}",id);
+        memberService.delete(id);
     }
 
 //    添加成员
-    @PostMapping(value = "/captain/team/{teamId}/member", produces = MediaType.APPLICATION_JSON_VALUE)
-    public Result add(@PathVariable("teamId") String TeamId, @RequestBody Member member) {
-//        Integer teamId = Integer.parseInt(TeamId);
-        System.out.println("添加成员");
+    @PostMapping
+    @RequireRole(role = 0)
+    public void add(@RequestBody Member member) {
+        log.info("添加成员：{}", member);
         memberService.add(member);
-        return Result.success();
     }
 
 
-//    根据id查询成员
-    @GetMapping(value = "/team/{teamId}/member", produces = MediaType.APPLICATION_JSON_VALUE)
-    public Result getInfo(@PathVariable("teamId") String TeamId) {
-//        Integer teamId = Integer.parseInt(TeamId);
-        System.out.println("根据id查询成员");
-        FindMember member = memberService.find(TeamId);
-        return Result.success(member);
+////    根据id查询成员具体信息
+//    @GetMapping
+//    public GlobalResponse getInfo(@RequestParam("id") Integer id) {
+//        log.info("修改成员信息，id:" + id);
+//        Member member = memberService.getInfo(id);
+//        return GlobalResponse.success(member);
+//    }
+
+//    修改成员信息
+
+    @PatchMapping
+    @RequireRole(role = 0)
+    public void update(@RequestBody Member member) {
+        log.info("修改成员信息：{}", member);
+        memberService.update(member);
     }
 }

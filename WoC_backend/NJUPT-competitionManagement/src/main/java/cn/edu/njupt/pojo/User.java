@@ -1,10 +1,17 @@
 package cn.edu.njupt.pojo;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
 
 @Data
+//@AllArgsConstructor
+@NoArgsConstructor
 public class User {
+    @Getter
     private String userCode;
+    @Getter
     private String password;
     private String name;
     private Long academyId;
@@ -19,4 +26,11 @@ public class User {
      * 3- SuperAdmin
      */
     private Integer role;
+    private  String token;
+
+    public User(String jwt) {
+        this.token = jwt;
+    }
+
+
 }

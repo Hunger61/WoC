@@ -21,10 +21,32 @@ public interface MemberMapper {
     List<FindMember> find(@Param("teamId") Integer teamId);
 
 
-//    根据id和teamId删除团队成员
-    @Delete("delete from member where id = #{id} and teamId = #{teamId}")
-    void delete(@Param("id") Integer id, @Param("teamId") Integer teamId);
+//    根据id删除团队成员
+    @Delete("delete from member where id = #{id}")
+    void delete(@Param("id") Integer id);
 
+//    新增成员
     @Insert("insert into member(id,name,studentId,teamId,academyId,phone,isCaptain) values(#{id},#{name},#{studentId},#{teamId},#{academyId},#{phone},#{isCaptain})")
     void add(Member member);
+
+
+////    查询成员具体信息
+//    @Select("select id,name,studentId,teamId,academyId,phone,isCaptain from member where id = #{id}")
+//    Member getInfo(@Param("id") Integer id);
+
+
+//    更新成员信息
+    @Update("update member set name = #{name},studentId = #{studentId},teamId = #{teamId},academyId = #{academyId},phone = #{phone},isCaptain = #{isCaptain} where id = #{id}")
+    void update(Member member);
+
+//    通过id查询成员
+    @Select("select count(1) from member where id = #{id}")
+    int findById(Integer id);
+
+//    通过学号查询成员
+    @Select("select count(1) from member where studentId = #{studentId}")
+    int findByStudentId(String studentId);
+
+
 }
+
